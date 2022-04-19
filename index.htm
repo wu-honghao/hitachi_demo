@@ -15,27 +15,35 @@
         <div class="left">
             <img src="./img/logo.png" alt="logo" height="50px" width="150px" />
         </div>
+
         <nav>
             <ul>
                 <li class="active">
                     <a href="#">首页</a>
                 </li>
+
                 <li>
                     <a href="#">品牌介绍</a>
                 </li>
+
                 <li>
                     <a href="#">新闻中心</a>
                 </li>
+
                 <li>
                     <a href="#">产品中心</a>
                 </li>
+
                 <li>
                     <a href="#">联系我们</a>
                 </li>
+
                 <li>
                     <a href="#" class="icon">
                         <img src="./img/iconPerson.png" alt="iconPerson" />
+
                         <img src="./img/iconArrB.png" alt="iconArr" />
+
                         <div class="down">
                             <button>立即登录</button>
                             <p>没有账号？<samp>立即注册</samp></p>
@@ -47,15 +55,22 @@
                 </li>
             </ul>
         </nav>
+
         <ul class="circle_list">
             <li class="circle"></li>
+
             <li class="circle"></li>
+
             <li class="circle"></li>
+
             <li class="circle"></li>
+
             <li class="circle"></li>
+
             <li class="circle active"></li>
         </ul>
     </header>
+
     <main>
         <div class="part1">
             <div class="part1-small">
@@ -63,11 +78,13 @@
                     <h2>日立电视L55-GP3 系列</h2>
                     <p>广视角、广色域、不拖影 原装 三星 / LG 真4K屏 全金属轻薄机身</p>
                 </div>
+
                 <div class="concise_photo">
                     <button>more</button>
                     <img src="./img//proHome1.jpg" alt="proHome1" />
                 </div>
             </div>
+
             <div class="part1-small">
                 <div class="concise">
                     <h2>日立电视L55-GP3 系列</h2>
@@ -78,6 +95,7 @@
                     <img src="./img//proHome2.jpg" alt="proHome2" />
                 </div>
             </div>
+
             <div class="part1-small">
                 <div class="concise">
                     <h2>日立电视L55-GP3 系列</h2>
@@ -89,10 +107,13 @@
                 </div>
             </div>
         </div>
+
         <div class="part2">
             <div class="left"></div>
+
             <div class="lb_main">
                 <div class="move">
+
                     <div class="item">
                         <img src="./img/homePro2.jpg" alt="homePro2" />
                         <article>
@@ -103,6 +124,7 @@
                             </div>
                         </article>
                     </div>
+
                     <div class="item">
                         <img src="./img/homePro2.jpg" alt="homePro2" />
                         <article>
@@ -113,6 +135,7 @@
                             </div>
                         </article>
                     </div>
+
                     <div class="item">
                         <img src="./img/homePro2.jpg" alt="homePro2" />
                         <article>
@@ -123,6 +146,7 @@
                             </div>
                         </article>
                     </div>
+
                     <div class="item">
                         <img src="./img/homePro2.jpg" alt="homePro2" />
                         <article>
@@ -133,15 +157,88 @@
                             </div>
                         </article>
                     </div>
+
+                    <div class="item">
+                        <img src="./img/homePro2.jpg" alt="homePro2" />
+                        <article>
+                            <div class="box">
+                                <h1>日立电视L55-GP3 系列</h1>
+                                <p>广视角、广色域、不拖影 原装 三星 / LG 真4K屏 全金属轻薄机身</p>
+                                <p>传统 LED 无法把人眼能够感知的颜色全部显示出来，通常只能显示 NTSC 60%-70% 的色域。日立采用包含大量专利广色域技术， 大大扩宽了色域，达到 NTSC 85% 以上，画面真实度更高，色彩更明艳，清晰锐利、细节生动</p>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
+
             <div class="right"></div>
         </div>
-
     </main>
+
     <footer>
         copyright © 2016 hitachi.com all rights reserved 中国日立集团有限公司版权所有
     </footer>
+
+    <script>
+        class Carousel {
+            constructor(oLeft, oRight, oItemList, oItemListLength) {
+                this.index = 0
+                this.oLeft = oLeft
+                this.oRight = oRight
+                this.oItemList = oItemList
+                this.oItemListLength = oItemListLength.length
+                this.lock = true
+                this.initButtonClick();
+            }
+
+            // 给按钮添加点击事件
+            initButtonClick() {
+                this.oLeft.addEventListener("click", this.toLeftImg.bind(this.oLeft, this));
+                this.oRight.addEventListener("click", this.toRightImg.bind(this.oRight, this));
+            }
+
+            toLeftImg(that) {
+                if (!that.lock) return
+                that.index--;
+                if (that.index == -1) {
+                    that.oItemList.style.left = (that.oItemListLength - 1) * -1024 + "px"
+                    that.oItemList.style.transition = "none";
+                    setTimeout(() => {
+                        that.index = 3;
+                        that.oItemList.style.left = that.index * -1024 + "px"
+                        that.oItemList.style.transition = "0.5s ease"
+                    }, 0)
+                } else {
+                    that.oItemList.style.left = that.index * -1024 + "px"
+                }
+                // 节流 关锁，等待500ms后才能重新执行
+                that.lock = false
+                setTimeout(() => {
+                    that.lock = true
+                }, 500)
+            }
+
+            toRightImg(that) {
+                if (!that.lock) return
+                that.index++;
+                that.oItemList.style.left = that.index * -1024 + "px"
+                that.oItemList.style.transition = "0.5s ease"
+                if (that.index == 4) {
+                    that.index = 0
+                    setTimeout(() => {
+                        that.oItemList.style.left = 0
+                        that.oItemList.style.transition = "none"
+                    }, 500);
+                }
+                // 节流 关锁，等待500ms后才能重新执行
+                that.lock = false
+                setTimeout(() => {
+                    that.lock = true
+                }, 500)
+            }
+        }
+        new Carousel(document.querySelector(".part2 .left"), document.querySelector(".part2 .right"), document.querySelector(".part2 .move"), document.querySelectorAll(".part2 .item"));
+    </script>
 </body>
 
 </html>

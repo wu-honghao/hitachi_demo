@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  height: 60px;
+  nav {
+    width: 30%;
+    height: 5%;
+    > ul {
+      display: flex;
+      height: 100%;
+      justify-content: space-around;
+      align-items: center;
+
+      > li {
+        height: 100%;
+        text-align: center;
+        line-height: 50px;
+        > a {
+          width: 60px;
+          display: block;
+          text-decoration: none;
+          color: black;
+          &:hover {
+            color: #ff3333;
+          }
+        }
+        .icon {
+          border-top: 3px #ff3333 solid;
+          background-color: white;
+          opacity: 0.8;
+          position: relative;
+          z-index: 1;
+          .down {
+            opacity: 0;
+          }
+          &:hover .down {
+            color: black;
+            opacity: 1;
+          }
+          .down {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            left: -90px;
+            width: 150px;
+            height: 200px;
+            background-color: white;
+            transition: all 2s ease-in-out;
+            button {
+              width: 80%;
+              height: 13%;
+              color: white;
+              background-color: #ff3333;
+              border: none;
+              cursor: pointer;
+              font-size: 12px;
+            }
+            p {
+              line-height: 40px;
+              text-align: left;
+              &:hover {
+                color: #ff3333;
+              }
+              samp {
+                color: #ff3333;
+              }
+            }
+            input {
+              width: 60%;
+              background-color: white;
+              border: 1px gray solid;
+              background-color: white;
+              background: url("../img/btnSrh.png") no-repeat;
+              padding-left: 20px;
+            }
+          }
+        }
+      }
+      > .active a {
+        color: #ff3333;
+      }
+    }
+  }
+  .left {
+    height: 5%;
+  }
+}
+section.banner {
+  position: relative;
+  .circle_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    left: 85%;
+    top: 50%;
+    height: 200px;
+    .circle {
+      background-color: white;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+    }
+    .active {
+      background-color: #ff3333;
+    }
+  }
+}
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .main_box {
+    background-color: #ffffff;
+    width: 60%;
+    height: 1250px;
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    > aside {
+      width: 20%;
+      height: 100%;
+      h1 {
+        color: #7f7f7f;
+        text-align: center;
+        padding: 10px;
+      }
+      .xiala {
+        width: 100%;
+        .lieb {
+          margin: 0px;
+          padding: 0px;
+          display: none;
+          li:hover {
+            color: #ff3333;
+          }
+          li:before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: url(../img/ul-li.png);
+            display: inline-block;
+            margin-right: 10px;
+            margin-left: 10px;
+            vertical-align: middle;
+            margin-top: -3px;
+          }
+        }
+        .title {
+          width: 90%;
+          background-color: #666666;
+          color: white;
+          text-align: center;
+          padding: 10px;
+        }
+        &:hover .lieb {
+          display: block;
+        }
+      }
+    }
+    > main {
+      width: 80%;
+      height: 100%;
+      display: flex;
+      .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .left {
+          display: flex;
+          align-items: center;
+        }
+        .right {
+          margin-top: 10px;
+          margin-right: 10px;
+          display: flex;
+          input {
+            padding: 10px;
+            background-color: transparent;
+            color: white;
+            border: 1px solid #acacac; //自定义边框
+          }
+          button {
+            padding: 10px;
+            background-color: #ff3333;
+            color: white;
+            border: 1px solid transparent; //自定义边框
+          }
+        }
+      }
+      .main {
+        display: flex;
+        flex-wrap: wrap;
+        .box {
+          width: 30%;
+          margin: auto;
+          text-align: center;
+          button {
+            margin: 0;
+            padding: 0;
+            border: 1px solid transparent; //自定义边框
+            background-color: transparent;
+            padding: 6px;
+          }
+          img {
+            cursor: pointer;
+          }
+        }
+      }
+      .pagination {
+        display: flex;
+        margin-top: 20px;
+        li {
+          padding: 10px;
+          font-size: 16px;
+          a {
+            text-decoration: none; /* 去除默认的下划线 */
+            outline: none; /* 去除旧版浏览器的点击后的外虚线框 */
+            color: #000; /* 去除默认的颜色和点击后变化的颜色 */
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  height: 75px;
+  background-color: #ff3333;
+  text-align: center;
+  color: white;
+  letter-spacing: 2px;
+  line-height: 75px;
+}
